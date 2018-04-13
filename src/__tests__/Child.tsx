@@ -2,6 +2,7 @@ import * as React from "react";
 import { HTMLAttributes, shallow, ShallowWrapper } from "enzyme";
 
 import Child from "../Child";
+console.log('Child: ', Child);
 
 const testChildProps = {
   items: ["1", "2", "3"],
