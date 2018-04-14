@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "test": "jest"
+  },
   "name": "ts-react-jest",
   "version": "1.0.0",
   "main": "index.js",
@@ -13,13 +16,19 @@
     "react-test-renderer": "^15.6.1",
     "source-map-loader": "^0.2.1",
     "ts-jest": "^20.0.7",
+    "tslint": "^5.9.1",
     "tslint-react": "^3.1.0",
     "typescript": "^2.4.2",
     "webpack": "^3.4.1"
   },
   "dependencies": {
+    "@types/request": "^2.47.0",
+    "axios": "^0.18.0",
+    "lodash": "^4.17.5",
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "request-promise": "^4.2.2",
+    "request-promise-native": "^1.0.5"
   },
   "jest": {
     "transform": {

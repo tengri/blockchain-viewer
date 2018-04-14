@@ -1,17 +1,16 @@
-import {get, post} from 'request';
+var rp = require('request-promise-native');
 
 import {IBlock} from 'app/Models';
 
-import {API_URL} from 'app/Consts';
+import {API_URL} from '../../Consts';
 
 export class BlockService {
-    getBlockByHash(hash: string) {
-        return get(`${API_URL}/${hash}`);
+    constructor(restActive: boolean = true) {
+
     }
 
-    async getLatestBlocks(number?: number): Promise<IBlock[]> {
-        const block =  await get(`${API_URL}/latestblock`).response;
-        console.log('block: ', block);
-        return [block];
+    public async getBlocksByTime(time: number = Date.now()): Promise<IBlock[]> {
+        const {blocks} =  JSON.parse(await rp(`${API_URL}/blocks/${time}?format=json`));
+        return blocks;
     }
 }

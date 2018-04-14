@@ -5,7 +5,11 @@
         "tslint-react"
     ],
     "jsRules": {},
-    "rules": {},
+    "rules": {
+        "object-literal-sort-keys": false,
+        "quotemark": false,
+        "no-console": false
+    },
     "rulesDirectory": [],
     "exclude": [
         "node_modules"
