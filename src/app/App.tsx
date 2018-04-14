@@ -1,11 +1,12 @@
 import {MainPage} from './Pages/MainPage';
 import {BlockListPage} from './Pages/BlockListPage';
+import {Header} from './Components/Header';
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 
 import {
-    BrowserRouter as Router,
+    HashRouter as Router,
     Route,
     Link,
 } from 'react-router-dom';
@@ -13,8 +14,8 @@ import {
 export const App = () => (
     <Router>
         <div>
-            <div><Link to="/blocks">blocks</Link></div>
-            <Route exact={true} path="/" component={MainPage}/>
+            <Header/>
+            <Route exact={true} path="/main" component={MainPage}/>
             <Route path="/blocks" component={BlockListPage} />
         </div>
     </Router>
