@@ -1,12 +1,11 @@
-
 import { Enum } from 'typescript-string-enums';
 import { Dispatch } from 'redux';
-import {BlockService} from '../services/BlockService'
+import {BlockService} from "./BlockService";
 
 export const blockActionTypes = Enum('GET_BLOCK_BY_ID', 'GET_BLOCKS_LIST');
 
 export class BlockActions {
-    constructor(protected service: BlockService, protected dispatch: Dispatch) {}
+    constructor(protected service: BlockService, protected dispatch: Dispatch<string>) {}
 
     getBlockByHeight (height: number) {
 

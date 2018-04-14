@@ -1,6 +1,6 @@
-var rp = require('request-promise-native');
+import {IBlock} from "../../Models/index";
 
-import {IBlock} from 'app/Models';
+var rp = require('request-promise-native');
 
 import {API_URL} from '../../Consts';
 

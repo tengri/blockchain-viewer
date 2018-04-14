@@ -1,4 +1,3 @@
-export * from './TodoModel';
 
 export interface IBlock {
     hash: string;

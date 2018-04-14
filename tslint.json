@@ -8,7 +8,10 @@
     "rules": {
         "object-literal-sort-keys": false,
         "quotemark": false,
-        "no-console": false
+        "no-console": false,
+        "ordered-imports": false,
+        "member-access": false,
+        "space-before-function-paren": false
     },
     "rulesDirectory": [],
     "exclude": [

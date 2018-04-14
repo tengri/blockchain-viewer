@@ -1,6 +1,7 @@
 {
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "start": "webpack --watch"
   },
   "name": "ts-react-jest",
   "version": "1.0.0",
@@ -9,8 +10,10 @@
   "devDependencies": {
     "@types/enzyme": "^2.8.4",
     "@types/jest": "^20.0.5",
+    "@types/lodash": "^4.14.106",
     "@types/react": "^15.6.0",
     "@types/react-dom": "^15.5.1",
+    "@types/react-router-dom": "^4.2.6",
     "awesome-typescript-loader": "^3.2.2",
     "enzyme": "^2.9.1",
     "react-test-renderer": "^15.6.1",
@@ -22,13 +25,20 @@
     "webpack": "^3.4.1"
   },
   "dependencies": {
+    "@types/redux-actions": "^2.2.4",
     "@types/request": "^2.47.0",
     "axios": "^0.18.0",
+    "immutable": "^3.8.2",
     "lodash": "^4.17.5",
-    "react": "^15.6.1",
+    "react": "^15.6.2",
     "react-dom": "^15.6.1",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "redux": "^3.7.2",
+    "redux-actions": "^2.3.0",
     "request-promise": "^4.2.2",
-    "request-promise-native": "^1.0.5"
+    "request-promise-native": "^1.0.5",
+    "typescript-string-enums": "^0.3.5"
   },
   "jest": {
     "transform": {
