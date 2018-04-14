@@ -1,4 +1,5 @@
-import {IBlock} from "../../Models/index";
+
+import {IBlock} from "../../Models";
 
 var rp = require('request-promise-native');
 

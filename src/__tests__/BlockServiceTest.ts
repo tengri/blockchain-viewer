@@ -9,6 +9,7 @@ it("should return last blocks by time", async () => {
         expect.objectContaining({
             hash: expect.any(String),
             time: expect.any(Number),
+            height: expect.any(Number)
         }));
 });
 

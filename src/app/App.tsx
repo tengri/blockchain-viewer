@@ -4,6 +4,12 @@ import {Header} from './Components/Header';
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { createStore } from 'redux'
+
+import {reducers} from './Reducers';
+
+const store = createStore(reducers);
+
 
 import {
     HashRouter as Router,
@@ -13,9 +19,9 @@ import {
 
 export const App = () => (
     <Router>
-        <div>
+        <div className="container">
             <Header/>
-            <Route exact={true} path="/main" component={MainPage}/>
+            <Route exact={true} path="/" component={MainPage}/>
             <Route path="/blocks" component={BlockListPage} />
         </div>
     </Router>

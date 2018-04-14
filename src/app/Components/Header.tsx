@@ -4,8 +4,6 @@ import { Button, Nav, Navbar, NavDropdown, MenuItem, NavItem, PageHeader } from 
 import { LinkContainer} from 'react-router-bootstrap';
 import {Link } from 'react-router-dom';
 
-/// In the render() method
-
 export class Header extends React.Component {
     render () {
         return (
