@@ -11,9 +11,9 @@ export const dispatchAsyncAction = async <TBeginPayload, TResponsePayload>(
     dispatch({type: actionType + '_BEGIN', status: EProcessStatus.RUNNING});
     try {
         const data = await asyncCall();
-        dispatch({type: actionType + '_SUCCESS', data, status: EProcessStatus.SUCCESS});
+        dispatch({type: actionType + '_SUCCESS', payload: data});
     } catch (error) {
-        dispatch({type: actionType + '_ERROR', error, status: EProcessStatus.FAIL});
+        dispatch({type: actionType + '_ERROR', payload: error});
     }
 
 }

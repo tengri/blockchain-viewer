@@ -15,10 +15,7 @@ interface IProps {
     blockActions: BlockActions;
 }
 
-class MainPageComponent extends React.Component<IProps> {
-    componentWillMount () {
-        this.props.blockActions.getLatestBlockList();
-    }
+export class MainPage extends React.Component<IProps> {
     render () {
         return (
             <div>
@@ -28,17 +25,3 @@ class MainPageComponent extends React.Component<IProps> {
         )
     }
 }
-
-function mapStateToProps (state: IAppState) {
-    return {
-        blocks: state.blocks.data
-    }
-}
-
-function mapDispatchToProps(dispatch: Dispatch<IAppState>) {
-    return {
-        blockActions: new BlockActions(new BlockService(), dispatch)
-    }
-}
-
-export const MainPage = connect(mapStateToProps, mapDispatchToProps)(MainPageComponent);

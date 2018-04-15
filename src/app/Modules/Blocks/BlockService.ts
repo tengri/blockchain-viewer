@@ -11,11 +11,10 @@ export class BlockService {
 
     }
     async getBlocksByTime(time: number = Date.now()): Promise<IBlock[]> {
-        const response: any =  await axios.get(
-            `${API_URL}/blocks/${time}?format=json&cors=true`);
+        const response: any =  await axios.get(`${API_URL}/blocks/${time}?format=json&cors=true`);
 
-        console.log('response blocks: ', response.blocks);
+        console.log('response.data: ', response.data);
 
-        return response.blocks;
+        return response.data.blocks;
     }
 }

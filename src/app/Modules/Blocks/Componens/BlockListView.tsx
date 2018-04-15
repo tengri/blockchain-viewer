@@ -2,12 +2,11 @@ import * as React from 'react';
 import {Table} from 'react-bootstrap';
 import {IBlock} from "../../../Models";
 
-export const BlockList = (props: {blocks: IBlock[]}) => {
+export const BlockListView = (props: {blocks: IBlock[]}) => {
     {
         return (
             <div>
-                <h1>Latest Blocks</h1>
-                <Table striped bordered condensed hover>
+                <Table>
                     <thead>
                     <tr>
                         <th>Height</th>
@@ -17,7 +16,7 @@ export const BlockList = (props: {blocks: IBlock[]}) => {
                     </thead>
                     <tbody>
                     {
-                        this.props.blocks.map((block: IBlock) => (
+                        props.blocks.map((block: IBlock) => (
                             <tr>
                                 <td>{block.height}</td>
                                 <th>{block.hash}</th>
