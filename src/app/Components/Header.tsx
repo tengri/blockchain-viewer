@@ -10,8 +10,8 @@ export class Header extends React.Component {
             <Navbar>
                 <Navbar.Header>
                     <Navbar.Brand>
-                        <LinkContainer to="/main">
-                            <a href="#home">Blockchain Info</a>
+                        <LinkContainer to="/">
+                            <a href="#">Blockchain Info</a>
                         </LinkContainer>
                     </Navbar.Brand>
                 </Navbar.Header>
