@@ -6,6 +6,8 @@ import {BlockActions} from '../Modules/Blocks/BlockActions';
 
 import { bindActionCreators } from 'redux'
 import {BlockService} from "../Modules/Blocks/BlockService";
+import {BlockList} from "../Modules/Blocks/Componens/BlockList";
+import {THList} from "../Modules/Transactions/Component/THList";
 
 
 interface IProps {
@@ -19,7 +21,10 @@ class MainPageComponent extends React.Component<IProps> {
     }
     render () {
         return (
-            <div>main</div>
+            <div>
+                <BlockList/>
+                <THList/>
+            </div>
         )
     }
 }

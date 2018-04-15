@@ -1,11 +1,11 @@
 import * as React from 'react';
 import {Table} from 'react-bootstrap';
 
-export class BlockList extends React.Component {
+export class THList extends React.Component {
     render () {
         return (
             <div>
-                <h1>Latest Blocks</h1>
+                <h1>Latest Transactions</h1>
                 <Table striped bordered condensed hover>
                     <thead>
                     <tr>
