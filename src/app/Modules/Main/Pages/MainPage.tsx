@@ -1,13 +1,13 @@
 import * as React from 'react';
 
 import {connect, Dispatch} from 'react-redux';
-import {IAppState, IBlock} from '../Models';
-import {BlockActions} from '../Modules/Blocks/BlockActions';
 
 import { bindActionCreators } from 'redux'
-import {BlockService} from "../Modules/Blocks/BlockService";
-import {BlockList} from "../Modules/Blocks/Componens/BlockList";
-import {THList} from "../Modules/Transactions/Component/THList";
+import {IAppState, IBlock} from "../../../Models";
+import {BlockActions} from "../../Blocks/BlockActions";
+import {BlockListWidget} from "../../Blocks/Componens/BlockListWidget";
+import {THList} from "../../Transactions/Component/THList";
+import {BlockService} from "../../Blocks/BlockService";
 
 
 interface IProps {
@@ -22,7 +22,7 @@ class MainPageComponent extends React.Component<IProps> {
     render () {
         return (
             <div>
-                <BlockList/>
+                <BlockListWidget/>
                 <THList/>
             </div>
         )

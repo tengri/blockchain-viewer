@@ -1,5 +1,4 @@
-import {MainPage} from './Pages/MainPage';
-import {BlockListPage} from './Pages/BlockListPage';
+
 import {Header} from './Components/Header';
 
 import * as React from 'react';
@@ -14,6 +13,11 @@ import {
     HashRouter as Router,
     Route,
 } from 'react-router-dom';
+import {BlockDetailsPage} from "./Modules/Blocks/Pages/BlockDetailsPage";
+import {TXListPage} from "./Modules/Transactions/Pages/TXListPage";
+import {MainPage} from "./Modules/Main/Pages/MainPage";
+import {BlockListPage} from "./Modules/Blocks/Pages/BlockListPage";
+
 
 
 const reduxStore = createStore(reducers, applyMiddleware(thunk));
@@ -25,6 +29,9 @@ export const App = () => (
                 <Header/>
                 <Route exact={true} path="/" component={MainPage}/>
                 <Route path="/blocks" component={BlockListPage} />
+                <Route path="/blocks-details" component={BlockDetailsPage} />
+                <Route path="/txs" component={TXListPage} />
+
             </div>
         </Router>
     </Provider>
