@@ -4,17 +4,19 @@ import {Header} from './Components/Header';
 
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { createStore} from 'redux'
+import { createStore, applyMiddleware} from 'redux'
 import {Provider} from 'react-redux'
+import thunk from 'redux-thunk';
 
 import {reducers} from './Reducers';
-
-const reduxStore = createStore(reducers);
 
 import {
     HashRouter as Router,
     Route,
 } from 'react-router-dom';
+
+
+const reduxStore = createStore(reducers, applyMiddleware(thunk));
 
 export const App = () => (
     <Provider store={reduxStore}>

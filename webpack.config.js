@@ -1,6 +1,7 @@
 const path = require('path');
 
 module.exports = {
+  mode: 'development',
   entry: "./src/app/App.tsx",
   output: {
     filename: "bundle.js",
@@ -24,11 +25,5 @@ module.exports = {
         loader: "source-map-loader",
       }
     ]
-  },
-
-    devServer: {
-        contentBase: path.join(__dirname, "dist"),
-        compress: true,
-        port: 9000
-    }
+  }
 };
