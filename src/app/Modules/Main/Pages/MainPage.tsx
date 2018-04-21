@@ -1,16 +1,12 @@
 import * as React from 'react';
 
-import {connect, Dispatch} from 'react-redux';
-
-import { bindActionCreators } from 'redux'
-import {IAppState, IBlock} from "../../../Models";
+import {IBlock} from "../../../Models";
 import {BlockActions} from "../../Blocks/BlockActions";
-import {BlockList} from "../../Blocks/Componens/BlockList";
 import {TXListView} from "../../Transactions/Components/TXListView";
-import {BlockService} from "../../Blocks/BlockService";
-import {Link} from "react-router-dom";
+
 import {PriceChart} from "../Components/PriceChart";
 import {SearchBlockForm} from "../Components/SearchBlockForm";
+import {LatestBlockList} from '../Components/LatestBlockList';
 
 interface IProps {
     blocks: IBlock[];
@@ -25,7 +21,7 @@ export class MainPage extends React.Component<IProps> {
         return (
             <div>
                 {/* список 10-ти последних блоков */}
-                <BlockList layout="short" />
+                <LatestBlockList />
 
                 {/* список 10-ти последних транзацкции */}
                 <TXListView/>

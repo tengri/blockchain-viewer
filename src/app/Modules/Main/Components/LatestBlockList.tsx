@@ -1,12 +1,7 @@
 import * as React from 'react';
 import {IAppState, IBlock} from "../../../Models";
 import {connect, Dispatch} from "react-redux";
-// import {BlockService} from "../BlockService";
-// import {BlockActions} from "../BlockActions";
-// import {BlockListView} from './BlockListView';
 import {Link} from "react-router-dom";
-import {Pager} from "react-bootstrap";
-import moment = require("moment");
 import {BlockActions} from "../../Blocks/BlockActions";
 import {BlockListView} from "../../Blocks/Componens/BlockListView";
 import {BlockService} from "../../Blocks/BlockService";
@@ -14,14 +9,9 @@ import {BlockService} from "../../Blocks/BlockService";
 interface IProps {
     actions: BlockActions;
     blocks: IBlock[];
-    layout?: string;
 }
 
-interface IState {
-    firstBlockTime: number;
-}
-
-class BlockListComponent extends React.Component<IProps, IState> {
+class LatestBlockListComponent extends React.Component<IProps> {
 
     componentDidMount () {
         this.props.actions.getBlockListByTime();
@@ -29,10 +19,11 @@ class BlockListComponent extends React.Component<IProps, IState> {
 
     render () {
         if (this.props.blocks.length === 0) return null;
+        const blocks = this.props.blocks.slice(0, 10);
         return (
             <div>
                 <h3>Latest Blocks</h3>
-                <BlockListView blocks={this.props.blocks.slice(0, 10)} />
+                <BlockListView blocks={blocks} />
                 <Link to="blocks">See all blocks</Link>
             </div>
         )
@@ -52,4 +43,4 @@ function mapDispatchToProps(dispatch: Dispatch<IAppState>) {
     }
 }
 
-export const BlockList = connect(mapStateToProps, mapDispatchToProps)(BlockListComponent);
+export const LatestBlockList = connect(mapStateToProps, mapDispatchToProps)(LatestBlockListComponent);
