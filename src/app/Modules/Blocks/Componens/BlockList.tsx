@@ -4,15 +4,26 @@ import {connect, Dispatch} from "react-redux";
 import {BlockService} from "../BlockService";
 import {BlockActions} from "../BlockActions";
 import {BlockListView} from './BlockListView';
+import {Link} from "react-router-dom";
+import {Pager} from "react-bootstrap";
 
 interface IProps {
     blockActions: BlockActions;
     blocks: IBlock[];
+    layout?: string;
 }
 
-class BlockListWidgetComponent extends React.Component<IProps> {
+class BlockListComponent extends React.Component<IProps> {
     componentDidMount () {
         this.props.blockActions.getLatestBlockList();
+    }
+
+    toPrevPage = () => {
+
+    }
+
+    toNextPage = () => {
+        
     }
 
     render () {
@@ -22,13 +33,19 @@ class BlockListWidgetComponent extends React.Component<IProps> {
                 <h1>Latest Blocks</h1>
                 <BlockListView blocks={this.props.blocks} />
 
+                <Link to="blocks">See all blocks</Link>
+
+                <Pager>
+                    <Pager.Item href="#" onClick={this.toPrevPage}>Previous</Pager.Item>
+                    <Pager.Item href="#" onClick={this.toNextPage}>Next</Pager.Item>
+                </Pager>
+
             </div>
         )
     }
 }
 
 function mapStateToProps (state: IAppState) {
-    console.log('mapStateToProps state: ', state);
     return {
         blocks: state.blockList.data
     }
@@ -40,4 +57,4 @@ function mapDispatchToProps(dispatch: Dispatch<IAppState>) {
     }
 }
 
-export const BlockListWidget = connect(mapStateToProps, mapDispatchToProps)(BlockListWidgetComponent);
+export const BlockList = connect(mapStateToProps, mapDispatchToProps)(BlockListComponent);

@@ -5,22 +5,36 @@ import {connect, Dispatch} from 'react-redux';
 import { bindActionCreators } from 'redux'
 import {IAppState, IBlock} from "../../../Models";
 import {BlockActions} from "../../Blocks/BlockActions";
-import {BlockListWidget} from "../../Blocks/Componens/BlockListWidget";
-import {THList} from "../../Transactions/Component/THList";
+import {BlockList} from "../../Blocks/Componens/BlockList";
+import {TXListView} from "../../Transactions/Components/TXListView";
 import {BlockService} from "../../Blocks/BlockService";
-
+import {Link} from "react-router-dom";
+import {PriceChart} from "../Components/PriceChart";
+import {SearchBlockForm} from "../Components/SearchBlockForm";
 
 interface IProps {
     blocks: IBlock[];
     blockActions: BlockActions;
 }
 
+/**
+ * Главная страница
+ */
 export class MainPage extends React.Component<IProps> {
     render () {
         return (
             <div>
-                <BlockListWidget/>
-                <THList/>
+                {/* список 10-ти последних блоков */}
+                <BlockList/>
+
+                {/* список 10-ти последних транзацкции */}
+                <TXListView/>
+
+                {/* график цены биткоина за последний месяц */}
+                <PriceChart/>
+
+                {/* форма для поиска блоков по height и транзакций по hash */}
+                <SearchBlockForm/>
             </div>
         )
     }

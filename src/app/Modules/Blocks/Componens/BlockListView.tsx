@@ -17,13 +17,12 @@ export const BlockListView = (props: {blocks: IBlock[]}) => {
                     <tbody>
                     {
                         props.blocks.map((block: IBlock) => (
-                            <tr>
+                            <tr key={block.height}>
                                 <td>{block.height}</td>
                                 <th>{block.hash}</th>
                                 <td>{block.time}</td>
                             </tr>
                         ))
-
                     }
                     </tbody>
                 </Table>

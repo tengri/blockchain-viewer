@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Table} from 'react-bootstrap';
 
-export class THList extends React.Component {
+export class TXListView extends React.Component {
     render () {
         return (
             <div>

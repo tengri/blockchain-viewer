@@ -29,7 +29,7 @@ export const App = () => (
                 <Header/>
                 <Route exact={true} path="/" component={MainPage}/>
                 <Route path="/blocks" component={BlockListPage} />
-                <Route path="/blocks-details" component={BlockDetailsPage} />
+                <Route path="/blocks/{:id}" component={BlockDetailsPage} />
                 <Route path="/txs" component={TXListPage} />
 
             </div>
