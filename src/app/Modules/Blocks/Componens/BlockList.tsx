@@ -50,11 +50,10 @@ class BlockListComponent extends React.Component<IProps, IState> {
         return (
             <div>
                 <h3>Latest Blocks</h3>
-                {this.props.layout === 'short' ?
-                    <Link to="blocks">See all blocks</Link> : (
+                {this.props.layout !== 'short' && (
                         <Pager>
-                            <Pager.Item href="#" onClick={this.toPrevPage}>Previous</Pager.Item>
-                            <Pager.Item href="#" onClick={this.toNextPage}>Next</Pager.Item>
+                            <Pager.Item onClick={this.toPrevPage}>Previous</Pager.Item>
+                            <Pager.Item onClick={this.toNextPage}>Next</Pager.Item>
                         </Pager>
                     )
                 }

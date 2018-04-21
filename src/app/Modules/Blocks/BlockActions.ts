@@ -3,7 +3,7 @@ import {BlockService} from "./BlockService";
 import {dispatchAsyncAction} from "../../utils";
 import {IBlock, IAppState} from "../../Models";
 import {isEmpty} from 'lodash';
-import {ThunkAction} from 'redux-thunk';
+// import {ThunkAction} from 'redux-thunk';
 import {Enum} from "typescript-string-enums";
 import assign = require("lodash/fp/assign");
 import concat = require("lodash/fp/concat");
