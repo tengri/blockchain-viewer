@@ -5,7 +5,7 @@ export class TXListView extends React.Component {
     render () {
         return (
             <div>
-                <h1>Latest Transactions</h1>
+                <h3>Latest Transactions</h3>
                 <Table striped bordered condensed hover>
                     <thead>
                     <tr>

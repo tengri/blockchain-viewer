@@ -3,7 +3,7 @@ import {isArray} from 'lodash';
 
 // const blockService = new BlockService();
 // it("should return last blocks by time", async () => {
-//     const blocks = await blockService.getBlocksByTime();
+//     const blocks = await blockService.getBlockListByTime();
 //     expect(isArray(blocks));
 //     expect(blocks[0]).toEqual(
 //         expect.objectContaining({

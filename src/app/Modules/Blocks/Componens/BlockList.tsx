@@ -6,40 +6,59 @@ import {BlockActions} from "../BlockActions";
 import {BlockListView} from './BlockListView';
 import {Link} from "react-router-dom";
 import {Pager} from "react-bootstrap";
+import moment = require("moment");
 
 interface IProps {
-    blockActions: BlockActions;
+    actions: BlockActions;
     blocks: IBlock[];
     layout?: string;
 }
 
-class BlockListComponent extends React.Component<IProps> {
+interface IState {
+    firstBlockTime: number;
+}
+
+class BlockListComponent extends React.Component<IProps, IState> {
+    state = {
+        firstBlockTime: moment().valueOf()
+    }
+
     componentDidMount () {
-        this.props.blockActions.getLatestBlockList();
+        this.props.actions.getBlockListByTime();
     }
 
     toPrevPage = () => {
-
+        const firstBlockTime = moment(this.state.firstBlockTime)
+            .subtract(1, 'millisecond')
+            .startOf('day')
+            .valueOf();
+        this.setState({firstBlockTime});
+        this.props.actions.getBlockListByTime(firstBlockTime);
     }
 
     toNextPage = () => {
-        
+        const firstBlockTime = moment(this.state.firstBlockTime)
+            .endOf('day')
+            .add(1, 'millisecond')
+            .valueOf();
+        this.setState({firstBlockTime});
+        this.props.actions.getBlockListByTime(firstBlockTime);
     }
 
     render () {
         if (this.props.blocks.length === 0) return null;
         return (
             <div>
-                <h1>Latest Blocks</h1>
+                <h3>Latest Blocks</h3>
+                {this.props.layout === 'short' ?
+                    <Link to="blocks">See all blocks</Link> : (
+                        <Pager>
+                            <Pager.Item href="#" onClick={this.toPrevPage}>Previous</Pager.Item>
+                            <Pager.Item href="#" onClick={this.toNextPage}>Next</Pager.Item>
+                        </Pager>
+                    )
+                }
                 <BlockListView blocks={this.props.blocks} />
-
-                <Link to="blocks">See all blocks</Link>
-
-                <Pager>
-                    <Pager.Item href="#" onClick={this.toPrevPage}>Previous</Pager.Item>
-                    <Pager.Item href="#" onClick={this.toNextPage}>Next</Pager.Item>
-                </Pager>
-
             </div>
         )
     }
@@ -53,7 +72,7 @@ function mapStateToProps (state: IAppState) {
 
 function mapDispatchToProps(dispatch: Dispatch<IAppState>) {
     return {
-        blockActions: new BlockActions(new BlockService(), dispatch)
+        actions: new BlockActions(new BlockService(), dispatch)
     }
 }
 

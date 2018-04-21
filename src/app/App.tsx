@@ -20,7 +20,10 @@ import {BlockListPage} from "./Modules/Blocks/Pages/BlockListPage";
 
 
 
-const reduxStore = createStore(reducers, applyMiddleware(thunk));
+const reduxStore = createStore(reducers,
+    // applyMiddleware(thunk)
+);
+
 
 export const App = () => (
     <Provider store={reduxStore}>

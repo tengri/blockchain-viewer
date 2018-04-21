@@ -25,7 +25,7 @@ export class MainPage extends React.Component<IProps> {
         return (
             <div>
                 {/* список 10-ти последних блоков */}
-                <BlockList/>
+                <BlockList layout="short" />
 
                 {/* список 10-ти последних транзацкции */}
                 <TXListView/>

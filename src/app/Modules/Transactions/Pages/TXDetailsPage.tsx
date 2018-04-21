@@ -6,7 +6,7 @@ import {THDetails} from "../Components/THDetails";
  */
 export const TXDetailsPage = (
     <div>
-        <h1>TXDetailsPage</h1>
+        <h3>TXDetailsPage</h3>
         <THDetails/>
     </div>
 );

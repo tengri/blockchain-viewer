@@ -10,8 +10,9 @@ export class BlockService {
     constructor () {
 
     }
-    async getBlocksByTime(time: number = Date.now()): Promise<IBlock[]> {
+
+    async getBlockListByTime(time: number = Date.now()): Promise<IBlock[]> {
         const response: any =  await axios.get(`${API_URL}/blocks/${time}?format=json&cors=true`);
-        return response.data.blocks.slice(0, 10);
+        return response.data.blocks;
     }
 }
