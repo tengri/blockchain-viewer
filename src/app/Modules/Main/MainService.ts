@@ -18,4 +18,14 @@ export class MainService {
         const response =  await axios.get(`${API_URL}/ru/unconfirmed-transactions?${DEFAULT_QUERY}`);
         return response.data.txs.slice(0, 5);
     }
+
+    async getTXByHash (hash: string) {
+        const response =  await axios.get(`${API_URL}/u/rawtx/${hash}?${DEFAULT_QUERY}`);
+        return response.data;
+    }
+
+    async getBlockByHeight (height: string) {
+        const response =  await axios.get(`${API_URL}/ru/block-height//${height}?${DEFAULT_QUERY}`);
+        return response.data;
+    }
 }

@@ -11,7 +11,7 @@ export class Header extends React.Component {
                 <Navbar.Header>
                     <Navbar.Brand>
                         <LinkContainer to="/">
-                            <a href="#">Blockchain Info</a>
+                            <a>Blockchain Info</a>
                         </LinkContainer>
                     </Navbar.Brand>
                 </Navbar.Header>

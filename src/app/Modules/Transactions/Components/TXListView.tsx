@@ -11,7 +11,7 @@ export const TXListView = ({txs}: IProps) => {
     if (isEmpty(txs)) return null;
 
     return (
-        <Table striped bordered condensed hover>
+        <Table>
             <thead>
             <tr>
                 <th>Hash</th>
@@ -22,7 +22,7 @@ export const TXListView = ({txs}: IProps) => {
 
             {
                 txs.map((tx: ITXView) => (
-                    <tr>
+                    <tr key={tx.hash}>
                         <td>{tx.hash}</td>
                         <td>{tx.out.reduce((total, out) => (total + out.value)/1000000, 0)}</td>
                     </tr>

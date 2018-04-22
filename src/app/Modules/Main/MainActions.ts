@@ -17,7 +17,7 @@ export class MainActions {
 
     }
 
-    getLatestTXList () {
+    async getLatestTXList () {
         return dispatchAsyncAction(this.dispatch, MainActionTypes.MAIN_LOAD_LATEST_TX_LIST, () => this.service.getLatestTXList())
     }
 
