@@ -1,9 +1,9 @@
 import * as React from 'react';
 import {Table} from 'react-bootstrap';
-import {IBlock} from "../../../Models";
+import {IBlockView} from "../../../Models";
 import moment = require("moment");
 
-export const BlockListView = (props: {blocks: IBlock[]}) => {
+export const BlockListView = (props: {blocks: IBlockView[]}) => {
     {
         return (
             <div>
@@ -17,7 +17,7 @@ export const BlockListView = (props: {blocks: IBlock[]}) => {
                     </thead>
                     <tbody>
                     {
-                        props.blocks.map((block: IBlock) => (
+                        props.blocks.map((block: IBlockView) => (
                             <tr key={block.height}>
                                 <td>{block.height}</td>
                                 <th>{block.hash}</th>

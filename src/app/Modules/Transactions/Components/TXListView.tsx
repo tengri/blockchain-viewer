@@ -1,30 +1,36 @@
 import * as React from 'react';
 import {Table} from 'react-bootstrap';
+import {ITXView} from "../../../Models";
+import isEmpty = require("lodash/fp/isEmpty");
 
-export class TXListView extends React.Component {
-    render () {
-        return (
-            <div>
-                <h3>Latest Transactions</h3>
-                <Table striped bordered condensed hover>
-                    <thead>
+interface IProps {
+    txs: ITXView[];
+}
+
+export const TXListView = ({txs}: IProps) => {
+    if (isEmpty(txs)) return null;
+
+    return (
+        <Table striped bordered condensed hover>
+            <thead>
+            <tr>
+                <th>Hash</th>
+                <th>Value Out</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            {
+                txs.map((tx: ITXView) => (
                     <tr>
-                        <th>#</th>
-                        <th>Height</th>
-                        <th>Hash</th>
-                        <th>Age</th>
+                        <td>{tx.hash}</td>
+                        <td>{tx.out.reduce((total, out) => (total + out.value)/1000000, 0)}</td>
                     </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Otto</td>
-                        <th>Hash</th>
-                        <td>@mdo</td>
-                    </tr>
-                    </tbody>
-                </Table>
-            </div>
-        );
-    }
+                ))
+
+            }
+
+            </tbody>
+        </Table>
+    )
 }

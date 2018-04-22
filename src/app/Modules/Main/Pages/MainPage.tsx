@@ -1,15 +1,15 @@
 import * as React from 'react';
 
-import {IBlock} from "../../../Models";
+import {IBlockView} from "../../../Models";
 import {BlockActions} from "../../Blocks/BlockActions";
-import {TXListView} from "../../Transactions/Components/TXListView";
 
 import {PriceChart} from "../Components/PriceChart";
 import {SearchBlockForm} from "../Components/SearchBlockForm";
 import {LatestBlockList} from '../Components/LatestBlockList';
+import {LatestTXList} from "../Components/LatestTXList";
 
 interface IProps {
-    blocks: IBlock[];
+    blocks: IBlockView[];
     blockActions: BlockActions;
 }
 
@@ -24,7 +24,7 @@ export class MainPage extends React.Component<IProps> {
                 <LatestBlockList />
 
                 {/* список 10-ти последних транзацкции */}
-                <TXListView/>
+                <LatestTXList/>
 
                 {/* график цены биткоина за последний месяц */}
                 <PriceChart/>

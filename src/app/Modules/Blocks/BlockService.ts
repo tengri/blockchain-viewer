@@ -1,8 +1,6 @@
 import axios from 'axios';
 
-import {IBlock} from "../../Models";
-
-// var rp = require('request-promise-native');
+import {IBlockView} from "../../Models";
 
 import {API_URL} from '../../Consts';
 
@@ -11,7 +9,7 @@ export class BlockService {
 
     }
 
-    async getBlockListByTime(time: number = Date.now()): Promise<IBlock[]> {
+    async getBlockListByTime(time: number = Date.now()): Promise<IBlockView[]> {
         const response: any =  await axios.get(`${API_URL}/blocks/${time}?format=json&cors=true`);
         return response.data.blocks;
     }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {THDetails} from "../Components/THDetails";
+import {TXDetails} from "../Components/TXDetails";
 
 /**
  * Страница транзакции со всей доступной о ней информацией.
@@ -7,6 +7,6 @@ import {THDetails} from "../Components/THDetails";
 export const TXDetailsPage = (
     <div>
         <h3>TXDetailsPage</h3>
-        <THDetails/>
+        <TXDetails/>
     </div>
 );

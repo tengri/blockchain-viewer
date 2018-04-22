@@ -1,16 +1,16 @@
 import * as React from 'react';
-import {IAppState, IBlock} from "../../../Models";
+import {IAppState, IBlockView} from "../../../Models";
 import {connect, Dispatch} from "react-redux";
 import {BlockService} from "../BlockService";
 import {BlockActions} from "../BlockActions";
 import {BlockListView} from './BlockListView';
-import {Link} from "react-router-dom";
 import {Pager} from "react-bootstrap";
 import moment = require("moment");
+import isEmpty = require("lodash/fp/isEmpty");
 
 interface IProps {
     actions: BlockActions;
-    blocks: IBlock[];
+    blocks: IBlockView[];
     layout?: string;
 }
 
@@ -49,15 +49,18 @@ class BlockListComponent extends React.Component<IProps, IState> {
         if (this.props.blocks.length === 0) return null;
         return (
             <div>
-                <h3>Latest Blocks</h3>
-                {this.props.layout !== 'short' && (
-                        <Pager>
-                            <Pager.Item onClick={this.toPrevPage}>Previous</Pager.Item>
-                            <Pager.Item onClick={this.toNextPage}>Next</Pager.Item>
-                        </Pager>
-                    )
-                }
-                <BlockListView blocks={this.props.blocks} />
+                <h3>Blocks mined on: {moment(this.state.firstBlockTime).format('MMMM Do YYYY')}</h3>
+
+                <Pager>
+                    <Pager.Item onClick={this.toPrevPage}>Previous</Pager.Item>
+                    <Pager.Item
+                        onClick={this.toNextPage}
+                        disabled={moment(this.state.firstBlockTime).isAfter(moment().startOf('day'))}>
+                        Next
+                    </Pager.Item>
+                </Pager>
+
+                {!isEmpty(this.props.blocks) && <BlockListView blocks={this.props.blocks} />}
             </div>
         )
     }

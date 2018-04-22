@@ -1,16 +1,17 @@
 import * as React from 'react';
 import {connect, Dispatch} from "react-redux";
-import {IAppState, ITX} from "../../../Models";
-import {TXService} from "../TXService";
-import {TXActions} from "../TXActions";
+import {TXActions} from "../Transactions/TXActions";
+import {IAppState, ITXView} from "../../Models";
+import {TXService} from "../Transactions/TXService";
+
 
 interface IProps {
     actions: TXActions;
-    txs: ITX[];
-
+    txs: ITXView[];
 }
 
 class TXListComponent extends React.Component<IProps> {
+
     render () {
         return (
             <div>TXList</div>
@@ -20,7 +21,7 @@ class TXListComponent extends React.Component<IProps> {
 
 function mapStateToProps (state: IAppState) {
     return {
-        txs: state.thList.data
+        txs: state.main.latestTXList
     }
 }
 
@@ -30,7 +31,7 @@ function mapDispatchToProps(dispatch: Dispatch<IAppState>) {
     }
 }
 
-export const TXList = connect(mapStateToProps, mapDispatchToProps)(TXListComponent);
+export const TXList = connect(null, null)(TXListComponent);
 
 
 

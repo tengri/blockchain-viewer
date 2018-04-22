@@ -29,7 +29,7 @@
             },
             {
                 enforce: "pre",
-                test: /\.ts$/,
+                test: /\.tsx?$/,
                 loader: "source-map-loader",
             },
             {

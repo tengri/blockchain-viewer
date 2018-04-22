@@ -19,9 +19,6 @@ export class Header extends React.Component {
                     <LinkContainer to="/blocks">
                         <NavItem eventKey={1}>Blocks</NavItem>
                     </LinkContainer>
-                    <LinkContainer to="/txs">
-                        <NavItem eventKey={2}>Transactions</NavItem>
-                    </LinkContainer>
                 </Nav>
             </Navbar>)
 

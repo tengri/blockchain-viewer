@@ -1,25 +1,25 @@
 import * as React from 'react';
-import {IAppState, IBlock} from "../../../Models";
+import {IAppState, IBlockView} from "../../../Models";
 import {connect, Dispatch} from "react-redux";
 import {Link} from "react-router-dom";
-import {BlockActions} from "../../Blocks/BlockActions";
 import {BlockListView} from "../../Blocks/Componens/BlockListView";
-import {BlockService} from "../../Blocks/BlockService";
+import {MainActions} from "../MainActions";
+import {MainService} from '../MainService';
 
 interface IProps {
-    actions: BlockActions;
-    blocks: IBlock[];
+    actions: MainActions;
+    blocks: IBlockView[];
 }
 
 class LatestBlockListComponent extends React.Component<IProps> {
 
     componentDidMount () {
-        this.props.actions.getBlockListByTime();
+        this.props.actions.getLatestBlockList();
     }
 
     render () {
         if (this.props.blocks.length === 0) return null;
-        const blocks = this.props.blocks.slice(0, 10);
+        const blocks = this.props.blocks.slice(0, 5);
         return (
             <div>
                 <h3>Latest Blocks</h3>
@@ -33,13 +33,13 @@ class LatestBlockListComponent extends React.Component<IProps> {
 
 function mapStateToProps (state: IAppState) {
     return {
-        blocks: state.blockList.data
+        blocks: state.main.latestBlockList.data
     }
 }
 
 function mapDispatchToProps(dispatch: Dispatch<IAppState>) {
     return {
-        actions: new BlockActions(new BlockService(), dispatch)
+        actions: new MainActions(new MainService(), dispatch)
     }
 }
 
