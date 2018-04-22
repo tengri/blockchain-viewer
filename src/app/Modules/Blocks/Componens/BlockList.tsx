@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {IAppState, IBlockView} from "../../../Models";
+import {IAppState, IBlockListItem} from "../../../Models";
 import {connect, Dispatch} from "react-redux";
 import {BlockService} from "../BlockService";
 import {BlockActions} from "../BlockActions";
@@ -10,7 +10,7 @@ import isEmpty = require("lodash/fp/isEmpty");
 
 interface IProps {
     actions: BlockActions;
-    blocks: IBlockView[];
+    blocks: IBlockListItem[];
     layout?: string;
 }
 
@@ -49,7 +49,7 @@ class BlockListComponent extends React.Component<IProps, IState> {
         if (this.props.blocks.length === 0) return null;
         return (
             <div>
-                <h3>Blocks mined on: {moment(this.state.firstBlockTime).format('MMMM Do YYYY')}</h3>
+                <h3>Blocks mined on: {moment(this.state.firstBlockTime).format('MMMM Do YYYY (UTC Z)')}</h3>
 
                 <Pager>
                     <Pager.Item onClick={this.toPrevPage}>Previous</Pager.Item>

@@ -6,14 +6,8 @@ import {BlockDetails} from '../Componens/BlockDetails';
 export const BlockDetailsPage = () => {
     return (
         <div>
-            <h3>Block Details</h3>
-
             {/* информацию про блок */}
             <BlockDetails/>
-
-            {/* список хранящихся в блоке транзакций */}
-
-
         </div>
     )
 }

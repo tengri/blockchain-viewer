@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {IAppState, IBlockView} from "../../../Models";
+import {IAppState, IBlockListItem} from "../../../Models";
 import {connect, Dispatch} from "react-redux";
 import {Link} from "react-router-dom";
 import {BlockListView} from "../../Blocks/Componens/BlockListView";
@@ -8,7 +8,7 @@ import {MainService} from '../MainService';
 
 interface IProps {
     actions: MainActions;
-    blocks: IBlockView[];
+    blocks: IBlockListItem[];
 }
 
 class LatestBlockListComponent extends React.Component<IProps> {
@@ -24,7 +24,7 @@ class LatestBlockListComponent extends React.Component<IProps> {
             <div>
                 <h3>Latest Blocks</h3>
                 <BlockListView blocks={blocks} />
-                <Link to="blocks">See all blocks</Link>
+                <Link to="/blocks">See all blocks</Link>
             </div>
         )
     }

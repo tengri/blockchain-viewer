@@ -1,12 +1,13 @@
 import {Dispatch} from 'redux';
 import {BlockService} from "./BlockService";
 import {dispatchAsyncAction} from "../../utils";
-import {IBlockView, IAppState} from "../../Models";
+import {IAppState} from "../../Models";
 
 export const BlockActionTypes = {
     LOAD_BLOCK_LIST: 'LOAD_BLOCK_LIST',
     LOAD_NEXT_BLOCK_LIST: 'LOAD_NEXT_BLOCK_LIST',
-    LOAD_PREV_BLOCK_LIST: 'LOAD_PREV_BLOCK_LIST'
+    LOAD_PREV_BLOCK_LIST: 'LOAD_PREV_BLOCK_LIST',
+    LOAD_BLOCK_BY_HEIGHT: 'LOAD_BLOCK_BY_HEIGHT'
 };
 
 export class BlockActions {
@@ -17,6 +18,12 @@ export class BlockActions {
     async getBlockListByTime (time?: number) {
         return dispatchAsyncAction(this.dispatch, BlockActionTypes.LOAD_BLOCK_LIST,
             () => this.service.getBlockListByTime(time)
+        )
+    }
+
+    async getBlockByHeight (height: number) {
+        return dispatchAsyncAction(this.dispatch, BlockActionTypes.LOAD_BLOCK_BY_HEIGHT,
+            () => this.service.getBlockByHeight(height)
         )
     }
 }

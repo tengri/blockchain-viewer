@@ -1,8 +1,8 @@
 import axios from 'axios';
-import {API_URL} from "../../Consts";
+import {API_URL, DEFAULT_QUERY} from "../../Consts";
 
 export class TXService {
-    getLatestTXList () {
-        return axios.get(`${API_URL}/unconfirmed-transactions?format=json&cors=true`)
+    async getLatestTXList (hash: string) {
+        return (await axios.get(`${API_URL}/ru/rawtx/${hash}?${DEFAULT_QUERY}`)).data
     }
 }

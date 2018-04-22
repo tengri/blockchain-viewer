@@ -1,12 +1,11 @@
 import * as React from 'react';
 import {Table} from 'react-bootstrap';
-import {ITXView} from "../../../Models";
+import {ITXListItem} from "../../../Models";
 import isEmpty = require("lodash/fp/isEmpty");
-import LinkContainer from "react-router-bootstrap/lib/LinkContainer";
 import {Link} from "react-router-dom";
 
 interface IProps {
-    txs: ITXView[];
+    txs: ITXListItem[];
 }
 
 export const TXListView = ({txs}: IProps) => {
@@ -23,17 +22,16 @@ export const TXListView = ({txs}: IProps) => {
             <tbody>
 
             {
-                txs.map((tx: ITXView) => (
+                txs.map((tx: ITXListItem) => (
                     <tr key={tx.hash}>
                         <td>
-                            <Link to={'/tx/'+tx.hash}>
+                            <Link to={'tx/'+tx.hash}>
                                 {tx.hash}
                             </Link>
                         </td>
                         <td>{tx.out.reduce((total, out) => (total + out.value)/1000000, 0)}</td>
                     </tr>
                 ))
-
             }
 
             </tbody>

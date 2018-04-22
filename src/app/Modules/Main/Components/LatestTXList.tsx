@@ -1,13 +1,13 @@
 import * as React from "react";
 import {connect, Dispatch} from "react-redux";
-import {IAppState, ITXView} from "../../../Models";
+import {IAppState, ITXListItem} from "../../../Models";
 
 import {TXListView} from "../../Transactions/Components/TXListView";
 import {MainActions} from "../MainActions";
 import {MainService} from '../MainService';
 
 interface IProps {
-    txs: ITXView[];
+    txs: ITXListItem[];
     actions: MainActions;
 }
 
@@ -28,8 +28,6 @@ class LatestTXListComponent extends React.Component<IProps> {
 };
 
 const mapStateToProps = (state: IAppState) => {
-    console.log('LatestTXList state: ', state);
-
     return {txs: state.main.latestTXList.data}
 }
 

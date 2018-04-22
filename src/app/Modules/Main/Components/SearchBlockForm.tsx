@@ -29,14 +29,13 @@ export class SearchBlockForm extends React.Component<IProps, IState> {
                 <FormGroup
                     controlId="formBasicText"
                 >
-                    <ControlLabel>Working example with validation</ControlLabel>
                     <FormControl
                         type="text"
                         value={this.state.value}
                         onChange={this.handleChange}
                     />
                     <FormControl.Feedback />
-                    <LinkContainer to="/search">
+                    <LinkContainer to={`/search?text=${this.state.value}`}>
                         <Button type="button">search</Button>
                     </LinkContainer>
                 </FormGroup>

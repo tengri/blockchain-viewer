@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import {IBlockView} from "../../../Models";
+import {IBlockListItem} from "../../../Models";
 import {BlockActions} from "../../Blocks/BlockActions";
 
 import {PriceChart} from "../Components/PriceChart";
@@ -9,7 +9,7 @@ import {LatestBlockList} from '../Components/LatestBlockList';
 import {LatestTXList} from "../Components/LatestTXList";
 
 interface IProps {
-    blocks: IBlockView[];
+    blocks: IBlockListItem[];
     blockActions: BlockActions;
 }
 

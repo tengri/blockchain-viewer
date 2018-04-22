@@ -1,9 +1,10 @@
 import * as React from 'react';
 import {Table} from 'react-bootstrap';
-import {IBlockView} from "../../../Models";
+import {IBlockListItem} from "../../../Models";
 import moment = require("moment");
+import {Link} from "react-router-dom";
 
-export const BlockListView = (props: {blocks: IBlockView[]}) => {
+export const BlockListView = (props: {blocks: IBlockListItem[]}) => {
     {
         return (
             <div>
@@ -17,11 +18,11 @@ export const BlockListView = (props: {blocks: IBlockView[]}) => {
                     </thead>
                     <tbody>
                     {
-                        props.blocks.map((block: IBlockView) => (
+                        props.blocks.map((block: IBlockListItem) => (
                             <tr key={block.height}>
-                                <td>{block.height}</td>
+                                <td><Link to={`/blocks/${block.height}`}>{block.height}</Link></td>
                                 <th>{block.hash}</th>
-                                <td>{moment.unix(block.time).format("dddd, MMMM Do YYYY, h:mm:ss a")}</td>
+                                <td>{moment.unix(block.time).format("dddd, MMMM Do YYYY, h:mm:ss a (UTC Z)")}</td>
                             </tr>
                         ))
                     }

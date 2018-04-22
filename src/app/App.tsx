@@ -27,9 +27,9 @@ export const App = () => (
                     <Header/>
                     <Switch>
                         <Route exact={true} path="/" component={MainPage}/>
-                        <Route path="/blocks" component={BlockListPage} />
-                        <Route path="/blocks/:id" component={BlockDetailsPage} />
-                        <Route path="/tx/:id" component={TXDetailsPage} />
+                        <Route exact={true} path="/blocks" component={BlockListPage} />
+                        <Route path="/blocks/:height" component={BlockDetailsPage} />
+                        <Route path="/tx/:hash" component={TXDetailsPage} />
                         <Route component={NotFoundPage} />
                     </Switch>
                 </div>

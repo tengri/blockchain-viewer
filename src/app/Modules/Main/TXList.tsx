@@ -1,13 +1,13 @@
 import * as React from 'react';
 import {connect, Dispatch} from "react-redux";
 import {TXActions} from "../Transactions/TXActions";
-import {IAppState, ITXView} from "../../Models";
+import {IAppState, ITXListItem} from "../../Models";
 import {TXService} from "../Transactions/TXService";
 
 
 interface IProps {
     actions: TXActions;
-    txs: ITXView[];
+    txs: ITXListItem[];
 }
 
 class TXListComponent extends React.Component<IProps> {
