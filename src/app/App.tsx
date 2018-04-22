@@ -14,19 +14,25 @@ import {BlockDetailsPage} from "./Modules/Blocks/Pages/BlockDetailsPage";
 import {MainPage} from "./Modules/Main/Pages/MainPage";
 import {BlockListPage} from "./Modules/Blocks/Pages/BlockListPage";
 import logger from 'redux-logger';
+import {TXDetailsPage} from "./Modules/Transactions/Pages/TXDetailsPage";
+import {NotFoundPage} from "./Pages/NotFoundPage";
+import {Switch} from "react-router";
 
 const reduxStore = createStore(Reducers, applyMiddleware(logger));
 
 export const App = () => (
     <Provider store={reduxStore}>
         <Router>
-            <div className="container">
-                <Header/>
-                <Route exact={true} path="/" component={MainPage}/>
-                <Route path="/blocks" component={BlockListPage} />
-                <Route path="/blocks/{:id}" component={BlockDetailsPage} />
-
-            </div>
+                <div className="container">
+                    <Header/>
+                    <Switch>
+                        <Route exact={true} path="/" component={MainPage}/>
+                        <Route path="/blocks" component={BlockListPage} />
+                        <Route path="/blocks/:id" component={BlockDetailsPage} />
+                        <Route path="/tx/:id" component={TXDetailsPage} />
+                        <Route component={NotFoundPage} />
+                    </Switch>
+                </div>
         </Router>
     </Provider>
 );
