@@ -15,12 +15,7 @@ export class Header extends React.Component {
                         </LinkContainer>
                     </Navbar.Brand>
                 </Navbar.Header>
-                <Nav>
-                    <LinkContainer to="/blocks">
-                        <NavItem eventKey={1}>Blocks</NavItem>
-                    </LinkContainer>
-                </Nav>
-            </Navbar>)
-
+            </Navbar>
+        )
     }
 }

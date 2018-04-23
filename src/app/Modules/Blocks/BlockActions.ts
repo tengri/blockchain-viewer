@@ -7,7 +7,7 @@ export const BlockActionTypes = {
     LOAD_BLOCK_LIST: 'LOAD_BLOCK_LIST',
     LOAD_NEXT_BLOCK_LIST: 'LOAD_NEXT_BLOCK_LIST',
     LOAD_PREV_BLOCK_LIST: 'LOAD_PREV_BLOCK_LIST',
-    LOAD_BLOCK_BY_HEIGHT: 'LOAD_BLOCK_BY_HEIGHT'
+    LOAD_BLOCK_BY_HASH: 'LOAD_BLOCK_BY_HASH'
 };
 
 export class BlockActions {
@@ -21,9 +21,9 @@ export class BlockActions {
         )
     }
 
-    async getBlockByHeight (height: number) {
-        return dispatchAsyncAction(this.dispatch, BlockActionTypes.LOAD_BLOCK_BY_HEIGHT,
-            () => this.service.getBlockByHeight(height)
+    async getBlockByHash (hash: string) {
+        return dispatchAsyncAction(this.dispatch, BlockActionTypes.LOAD_BLOCK_BY_HASH,
+            () => this.service.getBlockByHash(hash)
         )
     }
 }

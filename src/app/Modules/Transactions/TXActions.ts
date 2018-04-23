@@ -13,9 +13,8 @@ export class TXActions {
 
     }
 
-
     async getTXByHash(hash: string) {
-        return dispatchAsyncAction(this.dispatch, TXActionTypes.TX_LOAD_TX_DETAILS, () => this.service.getLatestTXList(hash));
+        return dispatchAsyncAction(this.dispatch, TXActionTypes.TX_LOAD_TX_DETAILS, () => this.service.getTXByHash(hash));
     }
 }
 

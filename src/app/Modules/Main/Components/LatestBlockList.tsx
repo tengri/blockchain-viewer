@@ -5,6 +5,8 @@ import {Link} from "react-router-dom";
 import {BlockListView} from "../../Blocks/Componens/BlockListView";
 import {MainActions} from "../MainActions";
 import {MainService} from '../MainService';
+import {BlockService} from "../../Blocks/BlockService";
+import {TXService} from "../../Transactions/TXService";
 
 interface IProps {
     actions: MainActions;
@@ -39,7 +41,7 @@ function mapStateToProps (state: IAppState) {
 
 function mapDispatchToProps(dispatch: Dispatch<IAppState>) {
     return {
-        actions: new MainActions(new MainService(), dispatch)
+        actions: new MainActions(new MainService(), new BlockService(), new TXService(), dispatch)
     }
 }
 

@@ -19,9 +19,9 @@ export const BlockListView = (props: {blocks: IBlockListItem[]}) => {
                     <tbody>
                     {
                         props.blocks.map((block: IBlockListItem) => (
-                            <tr key={block.height}>
-                                <td><Link to={`/blocks/${block.height}`}>{block.height}</Link></td>
-                                <th>{block.hash}</th>
+                            <tr key={block.hash}>
+                                <td>{block.height}</td>
+                                <th><Link to={`/blocks/${block.hash}`}>{block.hash}</Link></th>
                                 <td>{moment.unix(block.time).format("dddd, MMMM Do YYYY, h:mm:ss a (UTC Z)")}</td>
                             </tr>
                         ))

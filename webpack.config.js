@@ -3,6 +3,12 @@
 
     module.exports = {
         mode: 'development',
+
+        devServer: {
+            historyApiFallback: true,
+
+        },
+
       entry: "./src/app/App.tsx",
       output: {
         filename: "bundle.js",

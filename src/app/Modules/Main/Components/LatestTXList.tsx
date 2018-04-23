@@ -5,6 +5,8 @@ import {IAppState, ITXListItem} from "../../../Models";
 import {TXListView} from "../../Transactions/Components/TXListView";
 import {MainActions} from "../MainActions";
 import {MainService} from '../MainService';
+import {BlockService} from "../../Blocks/BlockService";
+import {TXService} from "../../Transactions/TXService";
 
 interface IProps {
     txs: ITXListItem[];
@@ -32,7 +34,7 @@ const mapStateToProps = (state: IAppState) => {
 }
 
 const mapDispatchToProps = (dispatch: Dispatch<IAppState>) => ({
-    actions: new MainActions(new MainService(), dispatch)
+    actions: new MainActions(new MainService(), new BlockService(), new TXService(), dispatch)
 })
 
 export const LatestTXList = connect(mapStateToProps, mapDispatchToProps)(LatestTXListComponent);

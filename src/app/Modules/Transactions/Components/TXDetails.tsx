@@ -9,7 +9,7 @@ import moment = require("moment");
 import {Link} from "react-router-dom";
 import {Row} from "react-bootstrap";
 
-interface IProps  extends RouteComponentProps<{hash: string}>{
+interface IProps extends RouteComponentProps<{hash: string}>{
     tx: ITXDetails;
     actions: TXActions;
 }
@@ -25,33 +25,38 @@ export class TXDetailsComponent extends React.Component <IProps> {
 
         return (
             <Row>
-                <h3>Summary</h3>
-                <Table>
-                    <tr>
-                        <th>Size</th>
-                        <td>{tx.size}(bytes)</td>
-                    </tr>
-                    <tr>
-                        <th>weight</th>
-                        <td>{tx.weight}</td>
-                    </tr>
-                    <tr>
-                        <th>Received Time</th>
-                        <td>{ tx.time && moment(tx.time*1000).format('dddd, MMMM Do YYYY, h:mm:ss a (UTC Z)')}</td>
-                    </tr>
-                    <tr>
-                        <th>Included In Blocks</th>
-                        <td><Link to={`/blocks/${tx.block_height}`}>{tx.block_height}</Link></td>
-                    </tr>
-                </Table>
+                <div className="row">
+                    <div className="col-md-8 col-lg-6">
+                        <Table>
+                            <tbody>
+                                <tr>
+                                    <th>Size</th>
+                                    <td>{tx.size}(bytes)</td>
+                                </tr>
+                                <tr>
+                                    <th>weight</th>
+                                    <td>{tx.weight}</td>
+                                </tr>
+                                <tr>
+                                    <th>Received Time</th>
+                                    <td>{ tx.time && moment(tx.time*1000).format('dddd, MMMM Do YYYY, h:mm:ss a (UTC Z)')}</td>
+                                </tr>
+                                <tr>
+                                    <th>Included In Blocks</th>
+                                    <td><Link to={`/blocks/${tx.block_height}`}>{tx.block_height}</Link></td>
+                                </tr>
+                            </tbody>
+                        </Table>
+                    </div>
+                </div>
             </Row>
         )
     }
 }
 
-const mapStateToProps = (state: IAppState, own: any) => {
+const mapStateToProps = (state: IAppState) => {
     return {
-        tx: state.blockDetails.data
+        tx: state.txDetails.data
     }
 }
 

@@ -29,7 +29,7 @@ export const TXListView = ({txs}: IProps) => {
                                 {tx.hash}
                             </Link>
                         </td>
-                        <td>{tx.out.reduce((total, out) => (total + out.value)/1000000, 0)}</td>
+                        <td>{tx.out.reduce((total, out) => (total + out.value)/1000000, 0)} BTC</td>
                     </tr>
                 ))
             }
