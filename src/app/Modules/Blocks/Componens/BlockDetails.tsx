@@ -7,6 +7,7 @@ import {RouteComponentProps, withRouter} from "react-router";
 import * as Table from "react-bootstrap/lib/Table";
 import {TXListView} from "../../Transactions/Components/TXListView";
 import * as PageHeader from "react-bootstrap/lib/PageHeader";
+import {TXPagination} from "./TXPagination";
 
 interface IProps extends RouteComponentProps<{hash: string}> {
     actions: BlockActions;
@@ -50,7 +51,7 @@ class BlockDetailsComponent extends React.Component<IProps>{
                     </Table>
 
                     <h3>Transactions</h3>
-                    <TXListView txs={block.tx}/>
+                    <TXPagination txs={block.tx}/>
                 </div>
             </div>
         )
