@@ -70,6 +70,4 @@ const mapDispatchToProps = (dispatch: Dispatch<IAppState>) => {
     };
 }
 
-
-
 export const BlockDetails = withRouter(connect(mapStateProps, mapDispatchToProps)(BlockDetailsComponent));

@@ -8,7 +8,7 @@ import * as Immutable from 'seamless-immutable';
 import {MainActionTypes} from "./MainActions";
 import {combineReducers} from "redux";
 
-const initialState: IMainBranch = {
+const initialState: IMainBranch = Immutable({
     latestBlockList: {
         status: EProcessStatus.IDLE,
         data: []
@@ -25,8 +25,7 @@ const initialState: IMainBranch = {
         status: EProcessStatus.IDLE,
         data: {tx: null, block: null}
     }
-}
-
+})
 
 const latestBlockListReducers = handleActions({
     [MainActionTypes.MAIN_LOAD_LATEST_BLOCK_LIST + '_SUCCESS']: (state: ILatestBlockListMainBranch, action: Action<IBlockListItem[]>) => {
