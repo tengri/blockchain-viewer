@@ -1,5 +1,10 @@
-# ts-react-jest
+# Blockchain viewer
 
-yarn && webpack
+### Install dependencies
+    npm install
 
-Open index.html in browser
+### Build project
+    npm run build
+    
+### Open site
+Open dist/index.html in browser

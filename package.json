@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "test": "jest",
-    "start": "webpack --watch"
+    "start": "webpack --watch",
+    "build": "webpack"
   },
   "name": "ts-react-jest",
   "version": "1.0.0",
@@ -22,6 +22,8 @@
     "@types/redux-actions": "^2.2.4",
     "@types/request": "^2.47.0",
     "@types/seamless-immutable": "^7.1.1",
+    "@types/reduce-reducers": "^0.1.3",
+    "@types/redux-logger": "^3.0.6",
     "awesome-typescript-loader": "^3.2.2",
     "css-loader": "^0.28.11",
     "json-loader": "^0.5.7",
@@ -38,10 +40,9 @@
     "webpack-dev-server": "^3.1.3"
   },
   "dependencies": {
-    "@types/reduce-reducers": "^0.1.3",
-    "@types/redux-logger": "^3.0.6",
     "axios": "^0.18.0",
     "bootstrap": "^3.3.7",
+    "chart.js": "^2.8.0",
     "chartjs": "^0.3.24",
     "connect": "^3.6.6",
     "copy-webpack-plugin": "^4.5.1",
