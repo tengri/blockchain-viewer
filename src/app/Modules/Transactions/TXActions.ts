@@ -4,13 +4,11 @@ import {IAppState} from "../../Models";
 import {dispatchAsyncAction} from "../../utils";
 
 export const TXActionTypes = {
-  // TX_LOAD_LAST_TX_LIST: 'TX_LOAD_LAST_TX_LIST',
     TX_LOAD_TX_DETAILS: 'TX_LOAD_TX_DETAILS'
 };
 
 export class TXActions {
     constructor (private service: TXService, private dispatch: Dispatch<IAppState>) {
-
     }
 
     async getTXByHash(hash: string) {

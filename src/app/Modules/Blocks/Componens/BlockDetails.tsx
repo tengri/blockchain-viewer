@@ -5,7 +5,6 @@ import {BlockActions} from '../BlockActions';
 import {BlockService} from "../BlockService";
 import {RouteComponentProps, withRouter} from "react-router";
 import * as Table from "react-bootstrap/lib/Table";
-import {TXListView} from "../../Transactions/Components/TXListView";
 import * as PageHeader from "react-bootstrap/lib/PageHeader";
 import {TXPagination} from "./TXPagination";
 

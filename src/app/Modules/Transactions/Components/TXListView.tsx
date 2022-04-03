@@ -25,7 +25,7 @@ export const TXListView = ({txs}: IProps) => {
                 txs.map((tx: ITXListItem) => (
                     <tr key={tx.hash}>
                         <td>
-                            <Link to={'tx/'+tx.hash}>
+                            <Link to={'tx/' + tx.hash}>
                                 {tx.hash}
                             </Link>
                         </td>
@@ -33,7 +33,6 @@ export const TXListView = ({txs}: IProps) => {
                     </tr>
                 ))
             }
-
             </tbody>
         </Table>
     )

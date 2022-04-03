@@ -1,15 +1,12 @@
-    const path = require('path');
-    const CopyWebpackPlugin = require('copy-webpack-plugin')
+const { WebpackPluginServe: Serve } = require('webpack-plugin-serve');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
     module.exports = {
         mode: 'development',
 
-        devServer: {
-            historyApiFallback: true,
 
-        },
 
-      entry: "./src/app/App.tsx",
+      entry: ["./src/app/App.tsx", 'webpack-plugin-serve/client'],
       output: {
         filename: "bundle.js",
         path: __dirname + "/dist"
@@ -24,7 +21,8 @@
         plugins: [
             new CopyWebpackPlugin([{
                 from: 'src/index.html'
-            }])
+            }]),
+            new Serve({port: 3000, static: __dirname + '/dist'})
         ],
 
       module: {
